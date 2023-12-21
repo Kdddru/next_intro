@@ -1,0 +1,25 @@
+
+
+.nav{
+  width: 60%;
+  min-width: 350px;
+  margin: auto;
+  background-color: aliceblue;
+  
+  img{
+    margin: auto;
+  }
+
+  ul{
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+
+  }
+  
+}
+
+.active{
+  color:tomato;
+}
+
