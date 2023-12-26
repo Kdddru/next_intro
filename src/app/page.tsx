@@ -1,4 +1,6 @@
+import Link from "next/link";
 import NavBar from "../../components/navbar";
+import style from "./style.module.scss";
 
 
 
@@ -22,8 +24,12 @@ interface dataType{
 
 
 export default async function Home() {
-  const API_KEY= process.env.NEXT_PUBLIC_API_KEY
-  const url =`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko`
+
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  const url =`${API_URL}?api_key=${API_KEY}&language=ko`;
+
 
   const res = await fetch(url,{cache : "no-cache"});
   const {results} = await res.json();
@@ -31,15 +37,22 @@ export default async function Home() {
   return (
     <>
       <NavBar/>
-      <div>
-        {
-          results && results.map((m:dataType,i:number)=>
-            <div key={i}>
-              <img src={`https://image.tmdb.org/t/p/original/${m.poster_path}`} alt="이미지" width={150}/>
-              <p>{m.title}</p>
-            </div>
-          )
-        }
+      <div className={style.info}>
+        <ul>
+          {
+            results && results.map((m:dataType,i:number)=>
+                <div className={style.card} key={i}>
+                  <Link href={{
+                    pathname : `/movies/${m.title}/${m.id}`,     }}
+
+                  >
+                    <img src={`https://image.tmdb.org/t/p/original/${m.poster_path}`} alt="이미지" width={150}/>
+                    <p>{m.title}</p>
+                  </Link>
+                </div>
+            )
+          }
+        </ul>
       </div>
     </>
   )

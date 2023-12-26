@@ -1,0 +1,37 @@
+.info{
+  width: 80%;
+  min-width: 700px;
+  max-width: 820px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+
+
+  ul{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    
+
+
+    .card{
+      width: 200px;
+      height: 330px;
+      border: 2px solid grey;
+      border-radius: 10px;
+      margin: auto;
+      margin-bottom: 20px;
+      box-shadow: 1px 1px 10px 1px grey;
+      cursor: pointer;
+
+
+      img{
+        margin: auto;
+        margin-top: 20px ;
+      }
+
+      p{
+        padding-top: 20px;
+      }
+    }
+  }
+}

@@ -16,3 +16,7 @@ a {
 li{
   list-style-type: none;
 }
+
+body{
+  min-width: 700px;
+}
